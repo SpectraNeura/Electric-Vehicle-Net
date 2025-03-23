@@ -232,16 +232,13 @@ def evaluate_rmse(df, method_name):
     return rmse_value
 
 
-# =방법별 RMSE 평가 실행
-evaluate_rmse(median_car_df, "중앙값 채우기")
-evaluate_rmse(mean_car_df, "평균값 채우기")
-evaluate_rmse(approx_car_df, "보간법 채우기")
-evaluate_rmse(random_car_df, "Random Forest 채우기")
+# 방법별 RMSE 평가 실행
+evaluate_rmse(median_car_df, "중앙값 채우기") # RMSE : 1.5711
+evaluate_rmse(mean_car_df, "평균값 채우기") # RMSE : 1.5685
+evaluate_rmse(approx_car_df, "보간법 채우기") # RMSE : 1.4971
+evaluate_rmse(random_car_df, "Random Forest 채우기") # RMSE : 1.5968
 
-import pandas as pd
-import numpy as np
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
+# 예측 모델 생성 및 TEST
 
 train_df = pd.read_csv('/content/car_train_split_approx.csv')
 train_df.columns = train_df.columns.str.strip()
